@@ -34,14 +34,14 @@ interface ChatMessage {
 }
 
 const quickSuggestions = [
-  "Como fazer agachamento corretamente?",
-  "Exercícios para braços iniciantes",
-  "Qual a forma correta do supino?",
-  "Treino completo para iniciantes",
-  "Exercícios de aquecimento",
-  "Como fazer rosca bíceps?",
-  "Treino de pernas em casa",
-  "Exercícios para fortalecer o core",
+  "Agachamento correto",
+  "Exercícios para braços",
+  "Forma correta do supino",
+  "Treino para iniciantes",
+  "Aquecimento básico",
+  "Rosca bíceps",
+  "Treino de pernas",
+  "Fortalecer core",
 ]
 
 // Componente para renderizar markdown simples com links clicáveis
@@ -515,17 +515,17 @@ export default function ChatPage() {
             {localMessages.length === 0 && (
               <div className="p-6 bg-gradient-to-r from-purple-50 to-white dark:from-purple-900/30 dark:to-gray-900 border-b border-gray-200 dark:border-gray-700">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Sugestões Rápidas</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {quickSuggestions.slice(0, 8).map((suggestion, index) => (
                     <Button
                       key={index}
                       variant="outline"
                       size="sm"
                       onClick={() => handleSuggestionClick(suggestion)}
-                      className="border-2 border-purple-200 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-600 dark:hover:bg-purple-700 hover:text-white dark:hover:text-white hover:border-purple-600 dark:hover:border-purple-700 transition-all duration-300 text-xs p-3 h-auto hover:scale-105"
+                      className="border-2 border-purple-200 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-600 dark:hover:bg-purple-700 hover:text-white dark:hover:text-white hover:border-purple-600 dark:hover:border-purple-700 transition-all duration-300 text-xs sm:text-sm p-2 sm:p-3 h-auto hover:scale-105 text-left whitespace-normal leading-tight"
                       disabled={isTyping}
                     >
-                      {suggestion}
+                      <span className="block w-full text-center">{suggestion}</span>
                     </Button>
                   ))}
                 </div>
